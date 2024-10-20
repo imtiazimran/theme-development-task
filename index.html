@@ -13,6 +13,14 @@
     <title>theme development task</title>
 
     <style>
+      .box-container {
+        height: 90vh;
+        background-image: url("https://i.ibb.co.com/9NM29vq/background.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
       .hoverBtn {
         position: relative;
         overflow: hidden; /* Ensures the pseudo-element stays inside the box */
@@ -23,24 +31,24 @@
         content: "";
         position: absolute;
         bottom: 0;
-        left: 0; 
-z-index: -1;
+        left: 0;
+        z-index: -1;
         width: 0%;
         height: 100%; /* Initially hidden */
-        background: #DBE112;
+        background: #dbe112;
         background-size: 20px 20px; /* Adjust for the wave size */
         transition: width 0.4s ease;
       }
 
       .hoverBtn:hover::before {
-        width:  100%; 
+        width: 100%;
       }
     </style>
   </head>
   <body>
-    <div class="bg-white px-20 py-16">
-      <div class="bg-[#0A0A0A] h-[804px] flex justify-between">
-        <div class="flex flex-col justify-center ml-32 text-white gap-6">
+    <div class="bg-white px-20 py-10 ">
+      <div class="box-container flex justify-between items-center rounded-3xl overflow-hidden">
+        <div class="flex-1 flex flex-col justify-center ml-32 text-white gap-6">
           <button class="text-white bg-[#D08B04] w-[100px] py-2 rounded-xl">
             50% OFF
           </button>
@@ -72,8 +80,306 @@ z-index: -1;
           </button>
         </div>
 
-        <div></div>
+        <div class="slider-container flex-1 flex justify-evenly ">
+
+          
+          <div id="slide1" class="slides grid grid-cols-1 w-[250px] gap-32">
+
+
+
+            <div class="slide h-[280px]  bg-[#DFDDD9] rounded-t-3xl ">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="slide h-[280px] bg-[#DFDDD9] rounded-t-3xl">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide h-[280px] bg-[#DFDDD9] rounded-t-3xl">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="slide h-[280px] bg-[#DFDDD9] rounded-t-3xl">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="slide h-[280px] bg-[#DFDDD9] rounded-t-3xl">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="slide h-[280px] bg-[#DFDDD9] rounded-t-3xl">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="slide h-[280px] bg-[#DFDDD9] rounded-t-3xl">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+          </div> 
+
+
+
+          <div id="slide2" class="slides grid grid-cols-1 w-[250px] gap-32">
+
+
+
+            <div class="slide h-[280px]  bg-[#DFDDD9] rounded-t-3xl ">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="slide h-[280px] bg-[#DFDDD9] rounded-t-3xl">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide h-[280px] bg-[#DFDDD9] rounded-t-3xl">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="slide h-[280px] bg-[#DFDDD9] rounded-t-3xl">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="slide h-[280px] bg-[#DFDDD9] rounded-t-3xl">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="slide h-[280px] bg-[#DFDDD9] rounded-t-3xl">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="slide h-[280px] bg-[#DFDDD9] rounded-t-3xl">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="w-full h-full  "
+              />
+
+              <div class="bg-white py-[10px] pl-[20px] rounded-b-3xl">
+                <p>White comfort Hoodie</p>
+                <div class="flex gap-2">
+                  <p class="font-bold ">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+          </div> 
+          
+          
+
+          </div>
+
+          </div>
+        </div>
       </div>
     </div>
+
+    
+    <div class="hidden" id="counter">1000</div>
+    <script>
+      let counterValue = 1000;
+      const counterElement = document.getElementById('counter');
+      const slider1 = document.getElementById('slide1');
+      const slider2 = document.getElementById('slide2');
+
+      
+      let direction = -1; 
+      
+      const interval = setInterval(() => {
+        counterElement.textContent = counterValue;
+        slider1.style.transform = `translateY(${counterValue}px)`;
+        slider2.style.transform = `translateY(${-counterValue}px)`;
+          counterValue += direction;
+  
+          if (counterValue < -1000) {
+              direction = 1; 
+              counterValue = -999; 
+          }
+  
+          if (counterValue > 1000) {
+              direction = -1; 
+              counterValue = 999; 
+          }
+      }, 10); 
+  </script>
+
   </body>
 </html>
