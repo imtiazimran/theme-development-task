@@ -1,413 +1,547 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Theme Development Task</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet" />
-  <title>Theme Development Task</title>
+    <style>
+      /* Box Container Styles */
+      .box-container {
+        /* min-height: 90vh; */
+        background-image: url("https://i.ibb.co.com/9NM29vq/background.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
 
-  <style>
-    /* Box Container Styles */
-    .box-container {
-      /* min-height: 90vh; */
-      background-image: url("https://i.ibb.co.com/9NM29vq/background.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
+      /* Hover Button Styles */
+      .hoverBtn {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
 
-    /* Hover Button Styles */
-    .hoverBtn {
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
+      .hoverBtn::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        width: 0%;
+        height: 100%;
+        background: #dbe112;
+        background-size: 20px 20px;
+        transition: width 0.4s ease;
+      }
 
-    .hoverBtn::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      width: 0%;
-      height: 100%;
-      background: #dbe112;
-      background-size: 20px 20px;
-      transition: width 0.4s ease;
-    }
+      .hoverBtn:hover::before {
+        width: 100%;
+      }
 
-    .hoverBtn:hover::before {
-      width: 100%;
-    }
+      /* Slider and Slide Styles */
+      .slides {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
 
-    /* Slider and Slide Styles */
-    .slides {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
+      .slide {
+        background-color: #dfddd9;
+      }
 
-    .slide {
-      background-color: #dfddd9;
-    }
-
-    /* .slide img {
+      /* .slide img {
       width: 100%;
       height: 100%;
     } */
 
-    .slide-details {
-      background-color: white;
-      padding: 10px 20px;
-    }
+      .slide-details {
+        background-color: white;
+        padding: 10px 20px;
+      }
 
-    .price-info {
-      display: flex;
-      gap: 2px;
-    }
-  </style>
-</head>
+      .price-info {
+        display: flex;
+        gap: 2px;
+      }
+/* computer view animation */
+      #slide1 {
+        transform: translateY(40%);
+        animation: slide1 50s infinite linear alternate;
+        animation-play-state: running;
+      }
+      #slide1:hover {
+        animation-play-state: paused;
+      }
 
-<body>
-  <div class="bg-white mx-2 md:mx-20 my-10">
-    <!-- Box Container -->
-    <div
-      class="box-container py-20  md:h-[90vh] flex md:flex-row flex-col justify-between items-center rounded-3xl overflow-hidden">
-      <!-- Left Section (Text & Buttons) -->
-      <div class=" md:m-10 flex flex-col justify-center  h-full text-white gap-6">
-        <!-- Discount Button -->
-        <button class="text-white bg-[#D08B04] w-[100px] py-2 rounded-xl">
-          50% OFF
-        </button>
+      @keyframes slide1 {
+        0% {
+          transform: translateY(40);
+        }
+        100% {
+          transform: translateY(-40%);
+        }
+      }
+      #slide2 {
+        transform: translateY(-40%);
+        animation: slide2 50s infinite linear alternate;
+        animation-play-state: running;
+      }
+      #slide2:hover {
+        animation-play-state: paused;
+      }
 
-        <!-- Headline Text -->
-        <h1>
-          <span
-            class="font-[Kalam] text-[70px] md:text-[128px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#46DAFB] via-[#DBF8E2] to-[#D53434] leading-[0px]">Winter</span>
-          <span class="uppercase text-[50px] md:text-[96px] mx-2 italic">Sale</span>
-          <p class="text-xl md:text-4xl">Limited-time Savings on Winter Items</p>
-        </h1>
+      @keyframes slide2 {
+        0% {
+          transform: translateY(-40);
+        }
+        100% {
+          transform: translateY(40%);
+        }
+      }
 
-        <!-- Shop Now Button -->
-        <button class="bg-white text-black w-[130px] py-2 rounded-xl hoverBtn">
-          Shop Now
-          <svg class="inline-block ml-2" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
-            clip-rule="evenodd">
-            <path
-              d="M12 0c-6.623 0-12 5.377-12 12s5.377 12 12 12 12-5.377 12-12-5.377-12-12-12zm0 1c-6.071 0-11 4.929-11 11s4.929 11 11 11 11-4.929 11-11-4.929-11-11-11zm4.828 11.5l-4.608 3.763.679.737 6.101-5-6.112-5-.666.753 4.604 3.747h-11.826v1h11.828z" />
-          </svg>
-        </button>
-      </div>
 
-      <!-- Right Section (Product Slider) -->
-      <div class="slider-container my-5 gap-4 flex justify-evenly flex-col md:flex-row md:w-[45%]">
-        <!-- Slide 1 -->
-        <div id="slide1" class="slides flex md:flex-col flex-row gap-4  md:w-[250px]">
-          <!-- Slide Items -->
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
-              </div>
-            </div>
-          </div>
+      /* small screen animation */
 
-          
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
-              </div>
-            </div>
-          </div>
+      @media (max-width: 768px) {
+        #slide1 {
+          transform: translateX(-38%);
+          animation: slide1-small 50s infinite linear alternate;
+        }
 
-      
+        @keyframes slide1-small {
+          0% {
+            transform: translateX(-38%);
+          }
+          100% {
+            transform: translateX(38%);
+          }
+        }
+      }
 
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
-              </div>
-            </div>
-          </div>
 
-      
+      @media (max-width: 768px) {
+        #slide2 {
+          transform: translateX(38%);
+          animation: slide2-small 50s infinite linear alternate;
+        }
 
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
-              </div>
-            </div>
-          </div>
+        @keyframes slide2-small {
+          0% {
+            transform: translateX(38%);
+          }
+          100% {
+            transform: translateX(-38%);
+          }
+        }
+      }
 
-      
 
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
-              </div>
-            </div>
-          </div>
 
-      
+    </style>
+  </head>
 
-          
+  <body>
+    <div class="bg-white mx-2 md:mx-20 my-10">
+      <!-- Box Container -->
+      <div
+        class="box-container py-20 gap-8 md:h-[90vh] flex md:flex-row flex-col justify-between items-center rounded-3xl overflow-hidden"
+      >
+        <!-- Left Section (Text & Buttons) -->
+        <div
+          class="md:m-auto flex flex-col justify-center h-full text-white gap-6"
+        >
+          <!-- Discount Button -->
+          <button class="text-white bg-[#D08B04] w-[100px] py-2 rounded-xl">
+            50% OFF
+          </button>
 
-          <!-- Additional Slides... -->
+          <!-- Headline Text -->
+          <h1>
+            <span
+              class="font-[Kalam] text-[60px] md:text-[128px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#46DAFB] via-[#DBF8E2] to-[#D53434] leading-[0px]"
+              >Winter</span
+            >
+            <span class="uppercase text-[30px] md:text-[96px] mx-2 italic"
+              >Sale</span
+            >
+            <p class="md:text-4xl">Limited-time Savings on Winter Items</p>
+          </h1>
+
+          <!-- Shop Now Button -->
+          <button
+            class="bg-white text-black w-[130px] py-2 rounded-xl hoverBtn"
+          >
+            Shop Now
+            <svg
+              class="inline-block ml-2"
+              width="24"
+              height="24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            >
+              <path
+                d="M12 0c-6.623 0-12 5.377-12 12s5.377 12 12 12 12-5.377 12-12-5.377-12-12-12zm0 1c-6.071 0-11 4.929-11 11s4.929 11 11 11 11-4.929 11-11-4.929-11-11-11zm4.828 11.5l-4.608 3.763.679.737 6.101-5-6.112-5-.666.753 4.604 3.747h-11.826v1h11.828z"
+              />
+            </svg>
+          </button>
         </div>
 
-        <!-- Slide 2 -->
-        <div id="slide2" class="slides flex md:flex-col flex-row gap-4 w-full md:w-[250px]">
-          <!-- Slide Items -->
-   
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
+        <!-- Right Section (Product Slider) -->
+        <div
+          class="slider-container my-5 gap-4 flex justify-evenly flex-col md:flex-row md:w-[45%]"
+        >
+          <!-- Slide 1 -->
+          <div
+            id="slide1"
+            class="slides flex md:flex-col flex-row gap-4 md:w-[250px]"
+          >
+            <!-- Slide Items -->
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
               </div>
             </div>
-          </div>
-   
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
               </div>
             </div>
-          </div>
-
-   
-   
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
               </div>
             </div>
-          </div>
-
-   
-   
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
               </div>
             </div>
-          </div>
-
-   
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
               </div>
             </div>
-          </div>
 
-   
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
               </div>
             </div>
-          </div>
 
-   
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
               </div>
             </div>
-          </div>
 
-   
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
               </div>
             </div>
-          </div>
 
-   
-          <div class="slide w-[200px] md:w-[250px] rounded-3xl shadow-lg">
-            <img src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png" alt="Image 1"
-              class=" object-cover" />
-            <div class="slide-details rounded-b-3xl bg-white p-4">
-              <p>White Comfort Hoodie</p>
-              <div class="price-info">
-                <p class="font-bold">$60.00</p>
-                <p class="text-gray-400">$72.00</p>
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
               </div>
             </div>
+
+            <!-- Additional Slides... -->
           </div>
 
+          <!-- Slide 2 -->
+          <div
+            id="slide2"
+            class="slides flex md:flex-col flex-row gap-4 w-full md:w-[250px]"
+          >
+            <!-- Slide Items -->
 
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
 
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
 
-          <!-- Additional Slides... -->
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide w-[150px] md:w-[250px] rounded-3xl shadow-lg">
+              <img
+                src="https://i.ibb.co.com/RcHjKZ2/card-Photo.png"
+                alt="Image 1"
+                class="object-cover"
+              />
+              <div class="slide-details rounded-b-3xl bg-white p-4">
+                <p>White Comfort Hoodie</p>
+                <div class="price-info">
+                  <p class="font-bold">$60.00</p>
+                  <p class="text-gray-400">$72.00</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Additional Slides... -->
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    let counterValue = 0;
-    const slider1 = document.getElementById('slide1');
-    const slider2 = document.getElementById('slide2');
-    let direction = -1; // Initial scroll direction
+    <!-- <script>
+      let counterValue = 0;
+      const slider1 = document.getElementById("slide1");
+      const slider2 = document.getElementById("slide2");
+      const sliderWidth = slider1.getBoundingClientRect().width;
+      const sliderHeight = slider1.getBoundingClientRect().height;
+      console.log( sliderHeight);
 
-    function updateSlider() {
+      let direction = -1; // Initial scroll direction
       const screenWidth = window.innerWidth;
+      console.log(screenWidth);
 
-      if (screenWidth < 768) {
-        // Small screens: translateY
-        slider1.style.transform = `translateX(${counterValue}px)`;
-        slider2.style.transform = `translateX(${-counterValue}px)`;
-      } else {
-        // Medium or larger screens: translateX
-        slider1.style.transform = `translateY(${-counterValue}px)`;
-        slider2.style.transform = `translateY(${counterValue}px)`;
+      function updateSlider() {
+        if (screenWidth < 768) {
+          // Small screens: translateY
+          slider1.style.transform = `translateX(${counterValue}px)`;
+          slider2.style.transform = `translateX(${-counterValue}px)`;
+        } else {
+          // Medium or larger screens: translateX
+          slider1.style.transform = `translateY(${-counterValue}px)`;
+          slider2.style.transform = `translateY(${counterValue}px)`;
+        }
+
+        counterValue += direction;
+
+        // Reverse direction when reaching bounds
+        if (counterValue < -1000) {
+          direction = 1;
+          counterValue = -999;
+        }
+        if (counterValue > 1000) {
+          direction = -1;
+          counterValue = 999;
+        }
       }
 
-      counterValue += direction;
+      let speed = 20;
 
-      // Reverse direction when reaching bounds
-      if (counterValue < -1000) {
-        direction = 1;
-        counterValue = -999;
-      }
-      if (counterValue > 1000) {
-        direction = -1;
-        counterValue = 999;
-      }
-    }
+      let interval = setInterval(updateSlider, speed);
 
-    let interval = setInterval(updateSlider, 10);
+      // Add event listener to adjust on window resize
+      window.addEventListener("resize", updateSlider);
 
-    // Add event listener to adjust on window resize
-    window.addEventListener('resize', updateSlider);
+      // Add event listener to stop scrolling onMouseOver
+      slider1.addEventListener("mouseover", () => {
+        clearInterval(interval);
+      });
+      slider2.addEventListener("mouseover", () => {
+        clearInterval(interval);
+      });
 
-    // Add event listener to stop scrolling onMouseOver
-    slider1.addEventListener('mouseover', () => {
-      clearInterval(interval);
-    });
-    slider2.addEventListener('mouseover', () => {
-      clearInterval(interval);
-    });
-
-    // Add event listener to start scrolling onMouseOut
-    slider1.addEventListener('mouseout', () => {
-      interval = setInterval(updateSlider, 10);
-    });
-    
-  </script>
-
-</body>
-
+      // Add event listener to start scrolling onMouseOut
+      slider1.addEventListener("mouseout", () => {
+        interval = setInterval(updateSlider, speed);
+      });
+    </script> -->
+  </body>
 </html>
